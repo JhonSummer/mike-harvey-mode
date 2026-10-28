@@ -1,0 +1,53 @@
+takes/d1p2_s11.mp3         1.00 | It's for the board at nine.
+takes/d1p2_s23.mp3         0.83 | It's for the board at 9.
+takes/d1p2_s37.mp3         1.00 | It's for the board at nine.
+takes/d1p_s11.mp3          1.00 | Yes or no, does it hit Delhi Abu Dhabi?
+takes/d1p_s23.mp3          1.00 | Yes or no? Does it hit Delhi Abu Dhabi?
+takes/d1p_s37.mp3          1.00 | Yes or no? Does it hit Delhi Abu Dhabi?
+takes/d1r_s11.mp3          1.00 | Can I come back to you?
+takes/d1r_s23.mp3          1.00 | Can I come back to you?
+takes/d2p2_s11.mp3         1.00 | That was fast.
+takes/d2p2_s23.mp3         1.00 | That was fast.
+takes/d2p_s11.mp3          1.00 | So does it hit us?
+takes/d2p_s23.mp3          1.00 | So, does it hit us?
+takes/d2p_s37.mp3          1.00 | So, does it hit us?
+takes/d2r_s11.mp3          0.90 | Eleven Fairs on Delhi Abu Dhabi. Notes in your inbox.
+takes/d2r_s23.mp3          0.90 | Eleven Fairs on Delhi Abu Dhabi. Notes in your inbox.
+takes/d2r_s37.mp3          0.80 | 11 Fairs on Delhi Abu Dhabi. Notes in your inbox.
+takes/n01_s11.mp3          0.77 | 11.41 p.m. New fair rules just dropped. Client wants answers by nine.
+takes/n01_s23.mp3          0.77 | 11.41 p.m. New fare rules just dropped. Client wants answers by 9.
+takes/n01_s37.mp3          0.77 | 11.41 p.m. new fare rules just dropped. Client wants answers by 9.
+takes/n01_s51.mp3          0.72 | 11.41pm, new fare rules just dropped. Client wants answers by 9.
+takes/n02_s11.mp3          1.00 | So you open your AI assistant, upload, limit reached.
+takes/n02_s23.mp3          1.00 | So you open your AI assistant, upload, limit reached.
+takes/n02_s37.mp3          1.00 | So you open your AI assistant, upload, limit reached.
+takes/n02_s51.mp3          1.00 | So you open your AI assistant, upload, limit reached.
+takes/n03_s11.mp3          1.00 | New chat, re-upload. Another chat, expired.
+takes/n03_s23.mp3          1.00 | New chat, re-upload. Another chat, expired.
+takes/n03_s37.mp3          1.00 | New chat, re-upload. Another chat. Expired.
+takes/n03_s51.mp3          1.00 | New chat, re-upload, another chat, expired.
+takes/n05_s11.mp3          1.00 | That doesn't have to be you
+takes/n05_s23.mp3          1.00 | That doesn't have to be you.
+takes/n06_s11.mp3          1.00 | Mike doesn't work alone. He brings associates.
+takes/n06_s23.mp3          1.00 | Mike doesn't work alone. He brings associates.
+takes/n06_s37.mp3          1.00 | Mike doesn't work alone. He brings associates.
+takes/n07_s11.mp3          1.00 | Mike reads the new rules the minute they drop.
+takes/n07_s23.mp3          1.00 | Mike reads the new rules the minute they drop.
+takes/n07_s37.mp3          1.00 | Mike reads the new rules the minute they drop.
+takes/n08_s11.mp3          0.88 | Gary digs through every court order that matters.
+takes/n08_s23.mp3          0.88 | Gary digs through every court order that matters.
+takes/n08_s37.mp3          0.88 | Gary digs through every court order that matters.
+takes/n09_s11.mp3          1.00 | Fiona redlines your fares and drafts the client note.
+takes/n09_s23.mp3          1.00 | Fiona redlines your fares and drafts the client note.
+takes/n09_s37.mp3          1.00 | Fiona redlines your fares and drafts the client note.
+takes/n10_s11.mp3          1.00 | all at once, in the background. Brief them once, then go to sleep.
+takes/n10_s23.mp3          1.00 | all at once in the background, brief them once, then go to sleep.
+takes/n10_s37.mp3          1.00 | All at once. In the background. Brief them once, then go to sleep.
+takes/n11_s11.mp3          1.00 | By morning it's done, and nothing goes out without your yes.
+takes/n11_s23.mp3          1.00 | By morning it's done, and nothing goes out without your yes.
+takes/n11_s37.mp3          1.00 | By morning it's done, and nothing goes out without your yes.
+takes/n13_s11.mp3          1.00 | Mike and Associates. Let them do their thing. You review, then you decide.
+takes/n13_s23.mp3          1.00 | Mike and Associates. Let them do their thing. You review. Then you decide.
+takes/n13_s37.mp3          1.00 | Mike and Associates. Let them do their thing. You review, then you decide.
+takes/n13_s51.mp3          1.00 | Mike and Associates, let them do their thing, you review, then you decide.
+takes/_v1/n13_s23.mp3      1.00 | Mike and Associates. Let them do their thing. You review, then you decide.

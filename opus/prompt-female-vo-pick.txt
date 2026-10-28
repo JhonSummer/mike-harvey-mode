@@ -1,0 +1,29 @@
+You are casting the FEMALE voice-over for "Mike" Version B (YP in 7HL Promo). Pick only — nothing will be generated in this step.
+
+PRODUCT / CUT
+- Mike = a legal AI "24/7 photographic-memory associate" that keeps working when the lawyer closes the laptop. Version B, "Coffee date, sun → moon": ~37.0 s, cinematic premium feel (laptop-lid slam open, black beat, one café lit from morning → golden hour → night, phone lights up with Mike's text, end card). Premium trailer / premium brand-film energy.
+- Previous attempts: Dr Joshi (rejected: read as Indian/"European dude" male), then Hank, a male trailer baritone. The client's brother now wants a FEMALE VO.
+- Wanted: a strong, confident, polished female narrator with authority and warmth — premium trailer / luxury brand film / prestige documentary. NOT bubbly influencer, NOT soft/breathy ASMR, NOT flat monotone TTS, NOT cartoon/character, NOT customer-service/IVR. Accent: clear American preferred, or polished Indian English that is unmistakably clear and premium; avoid anything that reads as European/heavily regional. Lines must stay intelligible at fast speeds (v4/v5 run at speed ~1.10–1.20 to fit picture).
+- Model: eleven_multilingual_v2 (eleven_v3 was rejected earlier because it misread words).
+
+LOCKED VO LINES (6 lines, with current timing cues in seconds)
+v1 0.25  "Your assistant works on your laptop."
+v2 2.30  "But what if <break 0.3s/> you close it?"   (must end before slam at 4.07 s)
+v3 6.13  "Mike doesn't."
+v4 8.10  "But what if you had a twenty-four seven assistant that learns on its own, doesn't need to be prompted, and keeps working while you're on a coffee date, in a high-stakes meeting, or busy drafting a notice. And when it's done, it texts you."  (≈12 s window)
+v5 20.20 "Introducing Mike, <break 0.2s/> your twenty-four seven photographic-memory associate, that goes through the docs overnight, and during the day, and lets you be the Harvey of the game."  (must end by ~29.1 s)
+v6 33.60 "Let Mike do its thing. <break 0.25s/> You be the spectator."
+Prior male (Hank) base settings for reference: stability 0.38, similarity_boost 0.80, style 0.40, speaker_boost true, per-line speed 0.92–1.20.
+
+THE CANDIDATE LIST — read ALL of it with the Read tool:
+- opus/_voice_data/female_compact_part1.txt through female_compact_part7.txt (1,803 female voices total; rows 1–25 are voices already in the account, the rest are English shared-library female voices sorted by 1-year usage). Columns: voice_id | name | age | accent | descriptive | use_case | description | usage_1y | cloned.
+- Full version with preview URLs: opus/ELEVENLABS-FEMALE-VOICES.md (large; consult only to copy preview_url for your picks via grep-like targeted reads/offsets).
+Note: Yashvi G `iPyMoGJCQabaH9UW93N1` (middle-aged, Indian, "Senior & Blunt") is already in the account — evaluate it explicitly, as the client has heard of it.
+
+TASK — output a Markdown document (it will be saved as opus/FEMALE-VOICE-PICK.md):
+1. TOP 1 pick + 2 runners-up. For each: exact name, exact voice_id COPIED VERBATIM from the list (never invent or alter an id), age, accent, whether it is already in the account or must be added from the shared library, preview_url, and 2–4 sentences on why it fits (authority, warmth, trailer gravitas, clarity at speed 1.2, accent risk).
+2. A short "also considered / shortlist" table of ~8–12 other strong candidates (id + name + one-line reason), and a short list of categories you rejected and why.
+3. Explicit verdict on Yashvi G iPyMoGJCQabaH9UW93N1.
+4. Recommended eleven_multilingual_v2 settings as a JSON block for the top pick (stability, similarity_boost, style, use_speaker_boost, base speed) plus per-line speed suggestions v1–v6, aiming for confident modulation (not flat, not over-acted). Give a brief note on adjusting for each runner-up if different.
+5. AUDITION NOTE: state plainly that nobody has listened to any preview yet; picks are from metadata only. Give a 60-second audition checklist (listen to the 3 previews, what to listen for, what disqualifies) and a fallback rule if the top pick fails.
+Be decisive. Do not invent voices, ids, or URLs that are not in the files.

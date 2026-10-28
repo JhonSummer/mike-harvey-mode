@@ -1,0 +1,20 @@
+  0.00-  5.60 11.41 p.m. new fare rules just dropped client wants answers by 9 so you open
+  5.60- 11.18 your AI assistant upload limit reached new chat read upload another chat
+ 11.18- 16.10 expired yes or no does it hit Delhi Abu Dhabi can I come back to you it's for
+ 16.10- 22.74 the board at 9 that doesn't have to be you meet Gary agents three associates
+ 22.74- 27.58 working for you mark reads the new rules the minute they drop Gary digs through
+ 27.58- 29.12 every court order that matters.
+ 29.86- 32.08 Fiona redlines your fares and drafts the client note.
+ 32.72- 35.02 Brief them once, then close your eyes.
+ 36.24- 37.74 All at once, in the background.
+ 42.80- 43.78 By morning it's done.
+ 44.58- 47.40 Every line cited and nothing goes out without your yes.
+ 48.76- 49.34 Tapini line.
+ 50.08- 50.94 See where it came from.
+ 51.36- 52.46 So, does it hit us?
+ 52.88- 54.18 11 fares on Delhi Abu Dhabi.
+ 54.56- 55.40 Notes in your inbox.
+ 55.40- 57.40 Fast and sighted.
+ 58.44- 62.56 Gary Agents. Every answer sighted. Nothing sent without your yes.
+MIKE-HITS: 0 []
+ASSOCIATES-HITS: [(' associates', np.float64(22.28))]

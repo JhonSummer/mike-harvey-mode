@@ -1,0 +1,11 @@
+You are choosing an ElevenLabs voice for a promo VO (YP in "7HL Promo", Version B). The client wants a classic Hollywood movie-trailer BARITONE read ("In a world..."), deep, resonant, with careful dramatic voice modulation — NOT a soft female read.
+
+Read opus/ELEVENLABS-VOICES-FOR-TRAILER.md (and audio/vo_b/voices.json if you need more detail such as labels/descriptions). Only choose from voice_ids present in that list. Do NOT invent voice ids.
+
+Output markdown with:
+1. TOP PICK: name + exact voice_id, and why it fits "movie trailer baritone".
+2. RUNNER-UP 1 and RUNNER-UP 2: name + exact voice_id + why.
+3. Recommended ElevenLabs model: eleven_multilingual_v2 vs eleven_v3 — choose one and explain (consider controllability, audio tags in v3, stability of deep timbre).
+4. Recommended voice_settings JSON for deep trailer modulation: {"stability":..., "similarity_boost":..., "style":..., "use_speaker_boost":..., "speed":...} with brief justification.
+5. Short delivery/script tips (pauses, punctuation, ellipses, v3 audio tags if v3) to get the "In a world..." cadence.
+Be concise.

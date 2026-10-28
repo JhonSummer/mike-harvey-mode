@@ -1,0 +1,24 @@
+You are grading a 38 s 9:16 B-roll clip (OpenBot desktop app, agent "Mike") for a legal-AI promo. The producer YP REJECTED it with this critique: "doesn't make a story; where's the user dialogue; font sizes / apt zoom; what does Opus think of the video." Be honest and blunt. A separate 27 s Remotion code-drawn 9:16 cut is the ship face and already tells the story (hook: your AI stops when laptop closes; Mike works unprompted, recalls every page, texts a draft; nothing goes out until you say yes). A re-roll (take 07, with Meera's user bubbles visible) is in progress by Motion.
+
+The plan (DIALOGUE-PLAN.md) called for 8 beats: B1 "You leave" 9:48 PM chip + caption "Works while you're away."; B2 routine fires with header, caption "Reads the docs unprompted."; B3 sources pill lands 4 reads one at a time; B4 M1 streams with gold underline r.7 -> cl. 7.3 -> 11 rows, caption "Every page, recalled."; B5 Meera types "Good catch on 7.3. Hold the alert, I'll read it tonight." M2 streams, gold caption "Nothing goes out / without your yes."; B6 card "10:16 PM -> 6:02 AM"; B7 Meera types "Morning. Where did we land overnight?" M3 streams ending "Nothing's gone out."; B8 end card "Mike." / "You review. Then you decide." / "Fictional matter, parties and data." In-app timestamps must be hidden; no cursor in frame.
+
+FRAME NOTES from take 06 (I extracted 12 evenly spaced frames + first/last at 720x1280, h264, no audio, 37.99 s, 458 KB):
+- Every frame: a landscape desktop window letterboxed into the 9:16 canvas. Black bars ~12% top and ~13% bottom; grey OS title bar "OpenBot" visible. The app occupies ~720x750 px. Body text renders ~10-11 px tall at 720 wide — unreadable on a phone. No zoom/punch-in at any point.
+- Left edge is CLIPPED: bubble text starts off-frame ("eera, the final..." / "atrix v3 updated" / "EL-AUH" / "ouch us").
+- Top right of thread: "Today 4:03 PM", "Created routine Indus Air · overnight rules check 04:03 PM", "Completed routine ... 04:05 PM", "Invoked 04:05 PM / Started 04:05 PM" — capture-time 4 PM timestamps visible throughout (contradicts the overnight story).
+- Frame 0 onward: M1 is ALREADY fully rendered (Read overnight: Gazette G-1187 · DGCA circulars · Falcon Gulf codeshare · Kabir's matrix v3; three changes; cl. 7.3 breaks on DEL-AUH; Matrix v3 updated 11 rows; Nothing has gone to Indus; Review alert ->). No B1/B2/B3: no leave beat, no routine firing, no sources landing, no streaming.
+- ~f03-f04: Meera's line "Good catch on 7.3. Hold the alert, I'll read it tonight." appears ONLY in the composer box at the bottom (tiny), then on send it vanishes — NO user bubble ever renders in the thread. A large empty gap sits where her bubble should be.
+- ~f05: M2 streaming "Holding it. It's on your desk only: alert, 7.3 redline, the 11 matrix rows. Nothing goes to Indus or their GC until you say yes. I won't ping Kabir before 6." plus a clipped placeholder status "...ing up something useful... 5s".
+- ~mid: composer shows "Morning. Where did we land overnight?" then it disappears; again no bubble; another empty gap.
+- M3: "Overnight: 212 routes checked, 0 filings against Indus. One rival tariff hit the portal at 3:02 AM. It doesn't touch us. Kabir's matrix: 11 rows changed, 2 stale references fixed (used v3, not v2). The alert is still with you. Nothing's gone out."
+- Last ~half of the clip (~f08-f12, ~16 s): static final thread, nothing changes. I-beam mouse cursor visible near composer. No captions, no post chips, no overnight card, no end card, no gold accents, no Remotion look anywhere. No audio.
+- Positives: no Settings/wiring, no "Chief", no red failed chips, no mock-miss text, no "gazette watch"; copy itself is good and lawyer-legible if zoomed.
+
+Write a grade in markdown with EXACTLY these sections:
+A. Call: KEEP / RE-ROLL / DROP (one word bolded + 2-3 line reason; KEEP is only allowed if Meera bubbles are visible, which they are not)
+B. Story (does it make a story; what a cold muted viewer gets)
+C. User dialogue (what's wrong, what's needed)
+D. Cleanliness: font size / zoom / framing / timestamps / cursor / clipped edges (concrete numbers: target text size, crop/zoom factor)
+E. Re-roll brief for take 07 (numbered, concrete capture + post instructions, pass/fail gates, kill switch)
+F. Plain paragraph for YP (4-6 sentences, no jargon, your honest opinion of the video)
+Output only the markdown.

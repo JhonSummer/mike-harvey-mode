@@ -1,0 +1,28 @@
+{
+  "name": "mike-harvey-mode",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Remotion short promos for Gary Agents (ex-Mike): board → composition → VO/mix → bake → KEEP",
+  "scripts": {
+    "studio": "npx remotion studio src/index.ts",
+    "build:c2": "./build-c2.sh",
+    "build:c": "./build-c.sh",
+    "build:b": "./build-b.sh"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.538",
+    "@remotion/google-fonts": "^4.0.538",
+    "@remotion/media-utils": "^4.0.538",
+    "@remotion/player": "^4.0.538",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.538",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  }
+}

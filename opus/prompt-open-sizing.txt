@@ -1,0 +1,20 @@
+You are Opus, creative director on the Mike legal-AI Remotion A-roll.
+
+YP (producer) just said on the 16x9 master: "First scene isn't feeling — have you seen the sizing" and "Ask opus."
+
+Ship cut: /workspace/mike-harvey-mode/out/mike-harvey-mode-16x9.mp4 (and 9x16). Overnight story KEEP otherwise. Final KEEP was revoked only for this open-feel/sizing note.
+
+Frame notes (pixels, from current masters):
+- 16x9 1920x1080 open (t≈0–3s): stylized laptop centered. Content bbox roughly ~25–35% of frame width; huge black void all around. Screen split doc (Indus Air / Falcon Gulf, gold highlight on "7.3 Fare ceiling…") + Assistant mid-type. Lid close at ~3.0s.
+- Same beat on 9x16: also check if laptop/type is undersized for phone.
+- Tone lock already: quiet lid, show not gag, no "Most legal AI…" tell line after lid.
+
+Write /workspace/mike-harvey-mode/opus/OPEN-SIZING.md with:
+A. Call: is YP right about sizing? (yes/no + blunt reason)
+B. Target scale for 16x9 and 9x16 (concrete: laptop should fill ~X% of frame width/height; recommended scale multiplier vs current; safe margins)
+C. What must stay readable at that scale (cl. 7.3 line, Assistant stream)
+D. Motion notes for the open only (camera creep / lid) — don't rewrite the overnight story after 5s
+E. One short paragraph for YP
+F. CODE-NOTES bullets for Motion (what to change in src/Mike.tsx LidOpen / scale constants) — implementable
+
+Output ONLY the markdown file contents (I'll write the path). No questions back.

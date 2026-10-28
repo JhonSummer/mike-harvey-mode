@@ -1,0 +1,24 @@
+takes/d2p2_s11.mp3         0.67 | Fast and sighted.
+takes/d2p2_s23.mp3         0.67 | Fast and sighted.
+takes/d2p2_s37.mp3         0.67 | Fast and sighted.
+takes/n06_s11.mp3          1.00 | Meet Gary Agents. Three associates working for you.
+takes/n06_s23.mp3          1.00 | Meet Gary Agents. Three associates working for you.
+takes/n06_s37.mp3          1.00 | Meet Gary Agents. Three associates working for you.
+takes/n07_s11.mp3          1.00 | Mark reads the new rules the minute they drop.
+takes/n07_s23.mp3          1.00 | Mark reads the new rules the minute they drop.
+takes/n07_s37.mp3          1.00 | Mark reads the new rules the minute they drop.
+takes/n08_s11.mp3          1.00 | Gary digs through every court order that matters.
+takes/n08_s23.mp3          1.00 | Gary digs through every court order that matters.
+takes/n08_s37.mp3          1.00 | Gary digs through every court order that matters.
+takes/n11_s11.mp3          1.00 | Brief them once, then close your eyes.
+takes/n11_s23.mp3          1.00 | Brief them once, then close your eyes.
+takes/n11_s37.mp3          1.00 | Brief them once, then close your eyes.
+takes/n12_s11.mp3          1.00 | By morning it's done. Every line cited, and nothing goes out without your yes.
+takes/n12_s23.mp3          1.00 | By morning it's done. Every line cited and nothing goes out without your yes.
+takes/n12_s37.mp3          0.97 | By morning, it's done. Every line is cited, and nothing goes out without your yes.
+takes/n13_s11.mp3          1.00 | Tap any line. See where it came from.
+takes/n13_s23.mp3          1.00 | Tap any line. See where it came from.
+takes/n13_s37.mp3          1.00 | Tap any line. See where it came from.
+takes/n15_s11.mp3          1.00 | Gary agents every answer cited nothing sent without your yes
+takes/n15_s23.mp3          1.00 | Gary Agents. Every answer cited. Nothing sent without your yes.
+takes/n15_s37.mp3          1.00 | Gary agents every answer cited nothing sent without your yes

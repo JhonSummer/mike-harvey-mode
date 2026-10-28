@@ -1,0 +1,15 @@
+You are Opus casting VO for Mike Version B.
+
+YP wants classic Hollywood movie-trailer baritone ("In a world…"): deep, close-mic, slow, authoritative English. Current bake used WkJcHHkxVUZl4ua7fWlW (Dr Joshi male) and sounded wrong/European to him. Also needs voice modulation (dynamic, not flat TTS).
+
+Read the full catalog: /workspace/mike-harvey-mode/opus/ELEVENLABS-VOICES.md
+
+Write the file /workspace/mike-harvey-mode/opus/TRAILER-VOICE-PICK.md with:
+A. Chosen voice: name + voice_id + why
+B. Runner-up name + voice_id
+C. Modulation notes (stability, style, similarity, pacing/punctuation for trailer cadence)
+D. Sample direction for: "Your assistant works on your laptop. But what if… you close it?"
+E. CODE-NOTES: voice_id, model_id, voice_settings JSON for ElevenLabs TTS
+
+Also copy the same content to /workspace/mike-harvey-mode/opus/TRAILER-BARITONE-CAST.md
+Prefer deep cinematic American/global-neutral male. Not thin European. Not female. Not Joshi unless truly best.

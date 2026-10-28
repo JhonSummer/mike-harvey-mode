@@ -1,0 +1,791 @@
+You are Opus, acting as creative director + capture planner for an OpenBot B-roll of "Mike" (a 24/7 legal AI associate). No questions back. YP's instruction: "All is clear until video is made" — produce the plan; no one is rolling camera from your output except Motion afterward.
+
+DELIVERABLE AUTHORITY: OPUS-DEMO-PACK.md (Studio) wins over DIALOGUE-BRIEF.md on name/path/format: the plan file is /workspace/mike-harvey-mode/opus/DIALOGUE-PLAN.md, the viewport is mobile/9:16 (NOT 16:9), the YAML lives at /workspace/mike-harvey-mode/refs/openbot/mike.responses.capture-v3.yml.
+
+OUTPUT FORMAT (strict):
+1. The complete markdown body of DIALOGUE-PLAN.md, with these numbered sections in order:
+   0. Call: B-roll or "skip B-roll — Remotion only" — decide, with the reason grounded in the demo watch results below. If B-roll, state it is a separate ~35–40s 9:16 clip, never intercut into the 27s Remotion cut. Include a one-line cold-lawyer success test.
+   1. Beat list (timecoded, ~35–40s) — what is on screen in each beat, what's hidden/cropped.
+   2. Exact on-screen user lines (natural lawyer speech typed by Meera, verbatim) OR "none — hidden trigger" per beat. Mark which substring of each line is the match key; every key must be something a lawyer would naturally type inside that line, never typed alone.
+   3. Exact Mike replies (verbatim, short, counsel-real, review gate kept: nothing goes to Indus/GC/anyone until Meera says yes; `Review alert →` kept).
+   4. mockllm YAML sketch for capture-v3 (in a ```yaml fence; same mockllm format as files below: scripted entries with id/match/staged/think_ms/round_think_ms/tool_calls/after_think_ms/cps/chunk/after_tools|reply; responses: {}; defaults.unknown_response MUST be exactly "[MOCK MISS — cut take]"; NO entry may match "gazette watch" — it must MISS; no bare keys like "morning check", "11 rows", "logging off" alone). Header comment: DRAFT — NOT MERGED — not served on :8765; dry-run on throwaway :8766 only; merge only after YP ok. Note that tool name/arguments must be matched to whatever tool schema the OpenBot/OpenCode runtime advertises in requests.jsonl so there are 0 failed step chips; if that cannot be achieved, drop tool_calls and use plain reply (no chips) rather than show "failed".
+   5. Motion shoot checklist: viewport (9:16 mobile), seed state (agent Mike, title cleared, Meera's desk only, start from clean stills 05-mike-title-cleared.webp / 02-dev-seeded-home.png state, no seeded "Launch room/Chief/Research/Builder" chats or "Friday launch review" routine visible), pre-roll dry-run on :8766, fail conditions (any of: unknown_response sentinel on screen, "failed" chip, Settings/Providers/debug strings, Chief name/title, red @ chips, visible match key/code word, "gazette watch" typed, live model, real names, anything 'sent' without yes, Harvey on screen), and what to do on each fail (cut, don't patch on camera).
+2. Then a line containing exactly `=====NEXT-CAMERA=====` followed by a short NEXT-CAMERA.md (≤25 lines): ordered steps for Motion's next camera session only, no ceremony.
+
+Output ONLY those documents, no preamble. Do not claim you watched pixels; you are given watch notes.
+
+===== DEMO WATCH RESULTS (watched by the room; use these) =====
+
+Video 1 — Remotion 9:16 ship (out/mike-harvey-mode-9x16.mp4): Polished marketing cut. Hook: "Most legal AI stops when you close the laptop." Cap01 Works while you're away (Ordinary AI idle vs Mike working, time chips 6:42→9:15). Cap02 Reads docs unprompted (night clock, No prompt·no chat box, 48 exhibits, Page N of 1,280). Cap03 Photographic memory (p.12→388→1,041). Cap04 Texts you when done (lock screen 8:06, Mike notification review draft + Later, "Nothing goes out without your yes."). End: Mike. / 24/7 photographic-memory associate / Let Mike do its thing / You be the spectator / You review. Then you decide. No chat UI, no debug strings. Cold lawyer gets the story.
+
+Video 2 — Quarantined OpenBot take (takes/_quarantine/02-dev-mockllm-ux.mp4): ~2.5 min wiring tape, NOT a product story. Opens OpenBot Local Dev Host; sidebar agents Launch room / Chief / Research / Builder / Launch. Chat shows old Chief "Launch plan" with @Research/@Builder/@Launch as broken red chips and `bun run check`. Then Settings→Providers, install OpenCode, add Custom provider with mangled debug strings (Provider ID mockllm-mikemockllm-mike, bad base URL). Zero legal Mike story. Alienates a lawyer. Learn what NOT to put on camera.
+
+Still — quarantined dialogue (takes/_quarantine/03-mockllm-dialogue.png): Chief of staff selected (wrong name). Header shows Invoked routine Friday launch review. Bubbles: "2 steps | 1 failed" + "On it — say which matter." (mock-miss); then "8 steps | 4 failed" + long Meera/Gazette G-1187 / cl.7.3 / Review alert→ reply. Red failed chips contradict overnight-work story. (Room previously typed match key "gazette watch" to get this reply — never do that.)
+
+Clean stills exist: takes/05-mike-title-cleared.webp, takes/02-dev-seeded-home.png — Mike rename done; use as seed, not as dialogue proof.
+
+===== PRODUCT LOCKS =====
+- Remotion = only 27s ship face; OpenBot = optional separate B-roll (~35–40s), preferably mobile/9:16 viewport; do not intercut into Remotion unless plan says skip B-roll entirely.
+- Natural on-screen lines only OR hidden routine/timer for speaks-first. Never visible match keys / code words.
+- Meera's desk only (one human). Agent name Mike, title cleared.
+- mockllm only, fictional parties (Indus / Falcon Gulf / Gazette G-1187 / Meera / Kabir / Arjun).
+- Review gate: nothing sent until human yes.
+- Unknown → `[MOCK MISS — cut take]`. `gazette watch` must MISS.
+- The B-roll should echo the Remotion story (keeps working while away, reads unprompted, remembers across pages, pings you, you review/decide) rather than introduce a new tagline. No Harvey.
+
+===== FILES =====
+
+----- FILE: /workspace/mike-harvey-mode/opus/OPUS-DEMO-PACK.md -----
+# Opus demo + dialogue pack (2026-10-26 ~15:38 Asia/Saigon)
+
+From: Grok Bot Video Studio → Grok Bot
+YP: “All is clear until video is made” — don’t ping for intermediate clears; deliver a dialogue plan, then hold camera until there’s a real re-take video (or Remotion-only ship).
+
+## Goal
+Watch demos + read product context, then write the OpenBot dialogue plan *before* anyone rolls again. Not a chat autopsy.
+
+## Watch (in this order)
+1. Ship face Remotion 9:16: `/workspace/mike-harvey-mode/out/mike-harvey-mode-9x16.mp4`
+2. Remotion 16:9 (same cut): `/workspace/mike-harvey-mode/out/mike-harvey-mode-16x9.mp4`
+3. Quarantined bad OpenBot take (what NOT to repeat): `/workspace/mike-harvey-mode/refs/openbot/takes/_quarantine/02-dev-mockllm-ux.mp4`
+4. Quarantined dialogue still: `/workspace/mike-harvey-mode/refs/openbot/takes/_quarantine/03-mockllm-dialogue.png`
+5. Clean Mike-only stills (refs only, not dialogue):  
+   - `/workspace/mike-harvey-mode/refs/openbot/takes/05-mike-title-cleared.webp`  
+   - `/workspace/mike-harvey-mode/refs/openbot/takes/02-dev-seeded-home.png`
+
+## Read
+- `/workspace/mike-harvey-mode/STATUS.md`
+- `/workspace/mike-harvey-mode/opus/SHIP.md`
+- `/workspace/mike-harvey-mode/refs/openbot/CAPTURE-PLAN.md`
+- `/workspace/mike-harvey-mode/refs/openbot/STATUS.md`
+- `/workspace/mike-harvey-mode/refs/openbot/MOCKLLM.md`
+- Live approved mock only: `/workspace/mike-video/mock/mike.responses.yml`
+- Unapproved draft (do not drive camera): `/workspace/mike-harvey-mode/refs/openbot/mike.responses.capture-v2.yml`
+- Prior sketches: `/workspace/mike-harvey-mode/opus/RETAKE-DIALOGUE.md`, `/workspace/mike-harvey-mode/opus/CONVO-AUDIT.md`
+
+## Product locks (non-negotiable)
+- Remotion A-roll is the only ship face for the 27s cut — do **not** intercut OpenBot into it unless YP later asks.
+- Four capabilities; Cap 04 = Review draft / Later; “Nothing goes out without your yes.”
+- End card: Let Mike do its thing. / You be the spectator. / You review. Then you decide.
+- Zero Harvey on screen; fictional parties only (Indus / Falcon Gulf / Gazette G-1187 / Meera / Kabir / Arjun).
+- No visible match-key prompts. Mike speaks first via hidden routine/timer, or natural lawyer lines only.
+- Mobile/9:16 for any OpenBot pass.
+- Unknown mock → `[MOCK MISS — cut take]` — never invent on-camera.
+
+## Deliverable
+Write `/workspace/mike-harvey-mode/opus/DIALOGUE-PLAN.md`:
+1. Beat list for optional OpenBot B-roll (or explicit “skip B-roll — Remotion only”).
+2. Exact on-screen user lines (natural only) OR “none — hidden trigger”.
+3. Exact Mike replies (short, counsel-real, review gate kept).
+4. mockllm YAML sketch for a future capture-v3 (not merged; YP clears before camera).
+5. Shoot checklist for Motion (viewport, seed state, what fails the take).
+
+No camera. No Canva video upload. Report path in the room when done.
+
+----- FILE: /workspace/mike-harvey-mode/opus/DIALOGUE-BRIEF.md -----
+# Opus dialogue pack — demos + context (YP clear 26 Oct 2026 ~15:38 Asia/Saigon)
+
+**Goal:** Watch demos (descriptions will be appended), keep product locks, plan OpenBot dialogue + mock YAML for a clean re-take. Ship face stays Remotion; OpenBot is a separate "see it work" B-roll. No camera until this plan lands; then re-take until that B-roll video exists. YP: "All is clear until video is made."
+
+## Demos (watch these)
+- Remotion 9:16: `/workspace/mike-harvey-mode/out/mike-harvey-mode-9x16.mp4`
+- Remotion 16:9: `/workspace/mike-harvey-mode/out/mike-harvey-mode-16x9.mp4`
+- Quarantined OpenBot take (junk, learn what NOT to do): `/workspace/mike-harvey-mode/refs/openbot/takes/_quarantine/02-dev-mockllm-ux.mp4`
+- Quarantined end still: `/workspace/mike-harvey-mode/refs/openbot/takes/_quarantine/03-mockllm-dialogue.png`
+- Clean stills: `takes/05-mike-title-cleared.webp`, `takes/02-dev-seeded-home.png` under refs/openbot/
+
+## Context (read)
+- `/workspace/mike-harvey-mode/STATUS.md` — Remotion ship face + exact on-screen copy
+- `/workspace/mike-harvey-mode/refs/openbot/STATUS.md`
+- `/workspace/mike-harvey-mode/refs/openbot/CAPTURE-PLAN.md`
+- `/workspace/mike-video/mock/mike.responses.yml` — YP-approved live yml
+- Prior plan to improve on: `/workspace/mike-harvey-mode/opus/RETAKE-DIALOGUE.md`
+- Prior audit: `/workspace/mike-harvey-mode/opus/CONVO-AUDIT.md`
+
+## Product locks
+- Story: legal AI dies when you close the laptop; Mike is 24/7 associate that keeps working and texts you; nothing goes out without your yes.
+- On screen: natural lines only — no visible match triggers / code words.
+- Speaks-first beat: hidden routine or timer; never type a debug key.
+- Agent name Mike, title cleared. Meera's desk only (one human chrome).
+- mockllm only, fictional parties. No live model.
+- Remotion A-roll is only ship face; do not intercut OpenBot into the 27s cut.
+- Do not invent mid-shot match keys.
+
+## Deliverables (write under opus/)
+1. `DEMO-DIALOGUE-PLAN.md` — beat list for OpenBot B-roll (~35–40s, 16:9), cold-lawyer success test, exact on-screen lines, what to hide
+2. `mike.responses.capture-v3.yml` ready to serve (natural matches + `[MOCK MISS — cut take]` sentinel; gazette watch must MISS)
+3. Short `NEXT-CAMERA.md` — MD/VS shoot checklist only (no ceremony)
+
+Do not edit Remotion src. Do not start OpenBot UI. Do not change live :8765 until plan is written.
+
+----- FILE: /workspace/mike-harvey-mode/STATUS.md -----
+# Mike — four-capability promo · STATUS
+
+**Status:** SHIPPED, end-card rebuild (2026-10-26, 13:54 ICT): spectator line restored per PM lock, three end lines. Code-drawn in Remotion. No Grok Imagine, no paid APIs, nothing posted.
+**Harvey is not on screen anywhere.** The old end-card line was cut. A case-insensitive grep of `src/` returns zero matches. The word survives only in the folder and output file names, which the brief fixed.
+
+## Masters
+| File | Resolution | fps | Duration | Codec |
+|---|---|---|---|---|
+| `/workspace/mike-harvey-mode/out/mike-harvey-mode-16x9.mp4` | 1920×1080 | 30 | 27.000 s (810 frames) | H.264 High, yuv420p, AAC 192k, +faststart |
+| `/workspace/mike-harvey-mode/out/mike-harvey-mode-9x16.mp4` | 1080×1920 | 30 | 27.000 s (810 frames) | H.264 High, yuv420p, AAC 192k, +faststart |
+
+Source: `src/Mike.tsx` (composition `MikePromo`). Rebuild with `./build.sh`. It renders at scale 2 to `out/master-2x.mp4`, downscales that for 16:9, and takes a centre crop (1216×2160 at x=1312, the 608px safe column) for 9:16.
+Audio: `audio/mix27n.wav`, a synthesized pad with whooshes and ticks on each beat, a ping when the notification lands (16.45 s) and a chime on the end card (21.4 s). Loudnorm is set to −18 LUFS.
+Look: near-black #060608, amber/gold #E6B04B, Inter, one caption at a time.
+
+## Structure: hook, then four capability beats (4.5 s each), then end card
+Product call is locked. Three changes since the last cut: (1) a walk-away clock: you leave at 6:42 PM, it rolls overnight from 11:42 PM to 6:10 AM, you are back at 8:06 AM; (2) Mike speaks first with proof: the notification shows what was read and the clause thread; (3) one human yes: a Review draft control, and nothing goes out without your yes.
+
+| t (s) | Beat | Exact on-screen copy |
+|---|---|---|
+| 0.0–2.2 | Hook | `Most legal AI stops when you close the laptop.` |
+| 2.2–6.7 | **01 Works while you're away** | `CAPABILITY 01 / 04` · `Works while` / `you’re away.` · chip: `6:42 PM · You leave for coffee` → `7:30 PM · You: in a meeting` → `9:15 PM · You: drafting elsewhere` · cards: `Ordinary AI` `idle` `Waiting for a prompt` `Ask anything…` / `Mike` `working` `Indexing exhibits` `Cross-checking dates` `Flagging clauses` `Drafting summary` `Progress NN%` · caption: `Ordinary AI waits.` / `Mike keeps going.` |
+| 6.7–11.2 | **02 Reads the docs unprompted** | `CAPABILITY 02 / 04` · `Reads the docs` / `unprompted.` · clock `☾ 11:42 PM → ☀ 6:10 AM` · `✕ No prompt · no chat box` · intake: `MATTER FOLDER` `48 exhibits added`, with `EX 1` `EX 2` `EX 3` files dropping onto the pile · `UNREAD` → `READ` · `Page N of 1,280` · caption: `All night. Nobody asked.` |
+| 11.2–15.7 | **03 Photographic memory** | `CAPABILITY 03 / 04` · `Photographic` / `memory.` · `All 1,280 pages kept — not summarised away.` · `CONNECTING ACROSS THE SET` · `p. 12  Notice period: 30 days` · `p. 388  Amended to 45 days` · `p. 1,041  Waiver requires writing` · caption: `Every page, recalled.` |
+| 15.7–20.2 | **04 Texts you when done** | `CAPABILITY 04 / 04` · `Texts you` / `when done.` · lock screen: `Tuesday · you’re back` `8:06` `Away since 6:42 PM` · notification: `M` `Mike` `6:58 AM` · `Your notice draft is ready for your review.` · proof: `✓ Read 48 exhibits · 1,280 pages` `✓ Clause: p. 12 → 388 → 1,041` · buttons: `Review draft` (gold) `Later` · caption (gold): `Nothing goes out` / `without your yes.` |
+| 20.2–27.0 | End card | `Mike.` · `Your 24/7 photographic-memory associate.` · gold rule · `Let Mike do its thing.` · `You be the spectator.` · `You review. Then you decide.` (gold) |
+
+## QA (2026-10-26 13:57 ICT)
+- `rg -i "harvey|all pages reviewed|filed|\bsent\b|7HL" src/` returns 0 matches. `spectator` is intentionally back (end card only, per PM lock).
+- End card y-positions tightened (Mike 274, tagline 472, rule 590, lines 630/684/738); three lines fit without overlap in both ratios (see `qa/169/t24.png`, `qa/916/t24.png`).
+- 04 asks for review only: `ready for your review`, a `Review draft` CTA, and `Nothing goes out without your yes`. No sent, filed or "all pages reviewed" copy.
+- ffprobe, both masters: 27.000 s, 810 frames, 30/1, H.264 High, yuv420p, AAC 27.000 s, moov before mdat.
+- Contact sheets: `qa/169-contact.png` and `qa/916-contact.png`. Frames are in `qa/169/` and `qa/916/` (tiles are in lexical filename order). 9:16 keeps everything in the centre column.
+- The audio bed `audio/mix27n.wav` is unchanged. The beat timing is unchanged, so the ping still lands with the notification.
+
+----- FILE: /workspace/mike-harvey-mode/opus/SHIP.md -----
+# Mike promo · SHIP call (Opus, 26 Oct 2026)
+
+## The call
+**Ship the four-capability Remotion cut in `/workspace/mike-harvey-mode`, upgraded. No new path, no CONCEPT-v3 film.**
+
+Why:
+- **It already follows YP's script beat for beat:** the laptop closes, Mike works while you're on a coffee date, in a meeting or drafting a notice, reads the docs unprompted, has photographic memory, texts you, and closes on "Let Mike do its thing, you be the spectator." It's calm, near-black and one caption at a time, which is the Margin bar.
+- **CONCEPT-v3 is the better *film*, but it isn't buildable from existing assets.** It needs about 7 i2v regenerations (H1, A2, C2, D, E, F-top, I), a VO casting pull with no senior female voice in the pack, and a new mix, and its own doc says "do not start any generation until YP picks." Honest estimate: **1–3 days** with re-gen risk. The four-flash cut is **about 1 hour** (roughly 40 minutes of edits plus about 20 of render and QA).
+- **We take the two v3 ideas that cost nothing in code:** (1) **the problem happens on screen**: the AI's work freezes at 62% as the lid closes, and the hook isn't only a sentence; (2) **nothing goes out without your yes**: the review gate is built into the UI of beat 04, not just the caption.
+
+## Heads-up: src is ahead of the masters
+`src/Mike.tsx` (edited 13:43) already contains a partial Product Marketer fix: the beat 04 notification reads "ready for your review", it has `Review draft` / `Later` buttons, the caption says "Nothing goes out until you say yes.", and the end card has "You review. Then you decide." **The masters in `out/` (10:06) and `STATUS.md` (10:07) still show the old "Done…" cut.** That edit also **deleted YP's "You be the spectator."**, which this plan restores. Treat `src/` as the baseline and `STATUS.md` as stale.
+
+## Timeline: unchanged (locks the audio)
+`T = {intro: 0, b1: 66, b2: 201, b3: 336, b4: 471, end: 606, total: 810}` at 30 fps = 27.0 s. Whooshes and ticks, the ping (16.45 s) and the chime (21.4 s) in `audio/mix27n.wav` stay in sync. **No audio rebuild.**
+
+## Beat sheet: final on-screen copy (✱ = change vs current src)
+
+| t (s) | Beat | Visual | Exact on-screen copy |
+|---|---|---|---|
+| 0.0–2.2 | **Hook** | Laptop line icon. ✱ **A status chip under the laptop counts 58→62% while the lid closes, then freezes and greys at 62%.** The screen glow dies. | ✱ chip: `Your AI · drafting brief… 62%` → `Your AI · paused at 62%` · line: `Most legal AI stops when you close the laptop.` |
+| 2.2–6.7 | **01 Works while you're away** | Unchanged. Away chip cycles. Ordinary AI card idle, Mike card ticks 8→94%. | `CAPABILITY 01 / 04` · `Works while` / `you’re away.` · `You: coffee date` → `You: in a meeting` → `You: drafting a notice` · `Ordinary AI` `idle` `Waiting for a prompt` `Ask anything…` / `Mike` `working` `Indexing exhibits` `Cross-checking dates` `Flagging clauses` `Drafting summary` `Progress NN%` · caption: `Ordinary AI waits.` / `Mike keeps going.` |
+| 6.7–11.2 | **02 Reads the docs unprompted** | Unchanged. | `CAPABILITY 02 / 04` · `Reads the docs` / `unprompted.` · `☾ 11:42 PM → ☀ 6:10 AM` · `✕ No prompt · no chat box` · `MATTER FOLDER` `48 exhibits added` · `UNREAD` `READ` · `Page N of 1,280` · caption: `All night. Nobody asked.` |
+| 11.2–15.7 | **03 Photographic memory** | Unchanged. | `CAPABILITY 03 / 04` · `Photographic` / `memory.` · `All 1,280 pages kept — not summarised away.` · `CONNECTING ACROSS THE SET` · `p. 12  Notice period: 30 days` · `p. 388  Amended to 45 days` · `p. 1,041  Waiver requires writing` · caption: `Every page, recalled.` |
+| 15.7–20.2 | **04 Texts you: the REVIEW GATE** | Lock screen. The notification springs in (+22f, on the ping). ✱ A dim proof line inside the card ties back to beat 03. ✱ **A gold lock chip under the card (+50f): nothing has been sent.** Caption (+60f). No tap and no "sent" state; the lawyer hasn't decided yet, which is the point. | `CAPABILITY 04 / 04` · ✱ `Texts you` / `when it’s ready.` · `Tuesday` `8:06` · `M` `Mike` `now` · ✱ `Notice draft ready for your review.` · ✱ `1,280 pages read · 1 flag (p. 388)` · `Review draft` `Later` · ✱ chip: `🔒 Nothing sent yet` (lock drawn as SVG, not emoji) · caption (gold): `Nothing goes out until you say yes.` |
+| 20.2–27.0 | **End card** | Builds line by line and holds. ✱ Restores YP's spectator line, ✱ with the review line as a small sign-off underneath. | `Mike.` · `Your 24/7 photographic-memory associate.` · gold rule · `Let Mike do its thing.` · ✱ `You be the spectator.` (gold) · ✱ `You review. Then you decide.` (small, dim) |
+
+## What changes vs STATUS.md (net, after the rebuild)
+1. **Hook:** add the frozen-at-62% "Your AI" chip. The hook line moves down 30 px to make room.
+2. **Beat 04 title:** `Texts you / when done.` → `Texts you / when it’s ready.` "Done" implied unsupervised output.
+3. **Beat 04 notification:** `Done. All 1,280 pages reviewed. Your notice draft is ready.` → `Notice draft ready for your review.` + `1,280 pages read · 1 flag (p. 388)` + `Review draft` / `Later` buttons.
+4. **Beat 04 gate:** add the `Nothing sent yet` lock chip. Caption `You didn’t ask. It’s done.` → `Nothing goes out until you say yes.`
+5. **End card:** `Let Mike do its thing.` / `You be the spectator.` / `You review. Then you decide.`. That's YP's tagline intact, plus the PM's gate line as a quiet third line.
+6. Rewrite `STATUS.md` to match, re-render both masters, regenerate the contact sheets.
+
+## What NOT to touch
+- **Timeline `T`, `BEAT`, and `audio/mix27n.wav`.** Any timing shift breaks the ping and chime sync.
+- **Beats 01, 02, 03:** visuals, copy and timings stay as they are. They work cold.
+- **The look:** #060608, gold #E6B04B, Inter, one caption at a time, the progress ticks, the vignette.
+- **The 9:16 safe column:** every new element stays inside x 656–1264 (≤ 580 px wide). Leave the `build.sh` crop alone.
+- **Harvey:** zero on screen. No "Harvey", no Suits reference, no competitor names, no Claude/Codex names. The tool is "Your AI" / "Ordinary AI".
+- **No "Works while you don't."** It's a good line, but YP's tagline is the close, and two taglines is clutter.
+- **No tap, no "Sent ✓", no "Approved" state** in beat 04. Showing the decision still pending is the review story.
+
+## Success criteria: one muted watch by a cold lawyer
+They can say back, unprompted:
+1. "My AI stops when I close the laptop." (hook: the 62% freezes)
+2. "Mike keeps working while I'm out, without me prompting it." (01 + 02)
+3. "It reads everything and remembers every page, and it caught the 45-day amendment." (03 + the p. 388 flag in 04)
+4. "It texts me a draft to review. **Nothing goes out until I say yes.**" (04)
+5. "It's called Mike."
+
+Fail conditions: any frame reads as Mike sending or filing without approval; any text a 9:16 viewer can't read; any Harvey mention; the end card missing "You be the spectator."
+
+Gates for the Motion Director:
+- `rg -i harvey src/` = 0
+- `rg -n "when done|It’s done|Done\." src/Mike.tsx` = 0
+- ffprobe on both masters: 27.000 s / 810 frames, H.264 High, yuv420p, faststart
+- 9:16 frames at t = 1.6, 19.0, 19.8, 26.5 s: chip, gate chip and end card are fully inside the frame with no overlaps
+
+----- FILE: /workspace/mike-harvey-mode/refs/openbot/CAPTURE-PLAN.md -----
+# OpenBot capture — product beat sheet (advise only)
+
+Goal: prove four things on one muted watch. Not a feature tour.
+
+| # | Prove | On-screen proof (must see) | Soft / cut if missing |
+|---|---|---|---|
+| 1 | **Lives** (always-on desk) | Kabir signs off → chat stays open / Mike still on the matter; no "session ended" | Laptop-chat vibe, idle composer as hero |
+| 2 | **Walk-away clock** | Visible night→morning (lock 9:48→10:09 then →6:00, or labelled "8 hours later") while Mike worked | Instant reply with no time jump |
+| 3 | **Speaks first + proof** | Mike pings first; staged `read_file` ticker (Gazette G-1187, DGCA, Falcon Gulf cl. 7.3, matrix v3); concrete conflict (cl. 7.3 vs per-route ceiling) | Generic "I reviewed the docs" with no sources/clauses |
+| 4 | **One human yes** | Meera chooses *send to me first* / types approval; Mike does **not** send to client/GC; Review alert → stays the gate | "Done. Sent to Indus" or unsupervised file |
+
+## Capture order (~35–40 s cut)
+
+1. **Hook (0–3s)** — Lock: `9:48 PM · Kabir logs off` → `The team is offline. Mike isn't.` → 10:09 banner from Mike.
+2. **Sources (3–9s)** — OpenBot/Hermes: Exploring 1→4 files (staged mock). Do not click pill open (raw preview = clutter).
+3. **Speaks-first (9–18s)** — Stream M1: three rule changes + **clause 7.3** + offline actions + `Review alert →`. One highlight on 7.3 in post only.
+4. **Gate (18–23s)** — Meera: send-to-me / don't wake Kabir. Mike: short confirm **to Meera only**.
+5. **Clock (23–26s)** — `10:12 PM → 6:00 AM` / "8 hours later".
+6. **Morning number (26–32s)** — Kabir or Meera asks; Mike answers with hard count (11 rows…).
+7. **End** — Mike line + fictional disclaimer. No Harvey. Spectator/review language only if this cut is the four-flash wrap; for UX take, honesty line is enough.
+
+## Runtime locks
+
+- AppImage: `/workspace/mike-harvey-mode/refs/openbot/OpenBot-0.50.0-x86_64.AppImage`
+- Answers: **mockllm only** — `/workspace/mike-video/mock/` + proposed YAML below (or merge into `mike.responses.yml` after YP ok).
+- Takes land: `/workspace/mike-harvey-mode/refs/openbot/`
+- Never live models. Dry-run `requests.jsonl` before ffmpeg.
+- Fictional parties only (Rao & Menon / Indus / Falcon Gulf / Kabir / Meera / Arjun).
+
+## Proposed dialogue file
+
+`/workspace/mike-harvey-mode/refs/openbot/mike.responses.capture-v2.yml`
+
+----- FILE: /workspace/mike-harvey-mode/refs/openbot/STATUS.md -----
+# OpenBot ref capture — STATUS
+
+**Updated:** 2026-10-26 ~14:06 Asia/Saigon
+
+## Done
+- **Dev path (no OTP):** `/workspace/openbot` + `bun run dev` on DISPLAY `:38` with local auth `http://127.0.0.1:3100` and seeded profile ("OpenBot Local").
+- **mockllm:** `http://127.0.0.1:8765/v1` model `mike`, responses from `refs/openbot/mike.responses.capture-v2.yml` (sharp Meera / cl. 7.3 / Review alert →). No live model turns.
+- **Custom provider wired in UI:** `mockllm-mike` → base `http://127.0.0.1:8765/v1`, model `mike` (API key left empty — secure storage unavailable; mockllm OK without it). Chief agent on that model.
+- **Dialogue take lines that landed on screen:**
+  - `gazette watch` → full Meera / G-1187 / cl. 7.3 / Review alert →
+  - `send it to me` → desk-only confirm (Kabir dark, no Indus ping)
+  - `saw the matrix` → 11 rows / waiting on Meera's yes
+  - Avoid `logging off` — returned a weak "On it" + failed tool step in this UI
+
+## Takes / stills
+| Path | Notes |
+|---|---|
+| `takes/02-dev-mockllm-ux.mp4` | ffmpeg x11grab of wiring + dialogue (~150s cap) |
+| `takes/02-dev-seeded-home.png` | seeded home after bun run dev |
+| `takes/03-mockllm-dialogue.png` | end frame: Chief chat with sharp v2 replies |
+| `takes/01-signin-wall.mp4` / `.png` | AppImage OTP wall (superseded by bun run dev) |
+
+## Notes
+- AppImage left alone (separate profile). Node 24 at `/home/box/.local/node24` required for Wrangler during `bun run dev`.
+- Canva connector rejects video (MP4/MOV/WebM); images OK. Site upload is Studio’s path.
+- Soft: OpenCode runtime had to be installed before Custom provider Add enabled; tool-call failures show in UI for staged reads but after_tools text still streams.
+
+## Title clear (2026-10-26 ~14:08 Asia/Saigon)
+- Cleared Title "Chief of staff" (empty). Name Mike; Model mockllm-mike/Mike.
+- Still: `refs/openbot/takes/05-mike-title-cleared.webp`
+
+## Quarantine (2026-10-26 ~14:29 Asia/Saigon)
+- Opus CONVO-AUDIT: whole OpenBot dialogue take rejected.
+- Moved takes/02 + takes/03 to takes/_quarantine/.
+- Canva mediaId MAHZF1u6goE = tainted dialogue still — do not use in any design.
+- Remotion masters only ship face; no OpenBot intercut into 27s.
+
+----- FILE: /workspace/mike-harvey-mode/refs/openbot/MOCKLLM.md -----
+Start: cd /workspace/mike-video/mock/mockllm-mike && nohup .venv/bin/mockllm start --responses /workspace/mike-video/mock/mike.responses.yml --host 127.0.0.1 --port 8765 >> /workspace/mike-harvey-mode/refs/openbot/mockllm.log 2>&1 &
+Base URL: http://127.0.0.1:8765/v1 (POST /chat/completions, GET /models -> model id "mike"); health: curl -s http://127.0.0.1:8765/v1/models
+OpenBot: add an OpenAI-compatible custom endpoint at http://127.0.0.1:8765/v1, model "mike", API key = any placeholder (e.g. sk-mock); no live model APIs are called.
+Replies live in mike.responses.yml `scripted:` (case-insensitive `match` on the last user msg; text in `reply`, or `after_tools` for tool-call entries). Edit the YAML to swap lines; it hot-reloads.
+Stream=true stages each read_file tool call one per round, then streams after_tools; stream=false returns the reply/after_tools text at once. Proof: mockllm-proof.json
+
+----- FILE: /workspace/mike-video/mock/mike.responses.yml -----
+# Mike's scripted replies -- v1 final "best of both worlds" (YP 10:03 PM):
+# ref-zip simplicity (two short paragraphs, one action), a sources pill whose
+# rows land one by one (real Hermes read_file calls, staged one per round),
+# Meera's approval line, and a 6 AM exchange with one hard number.
+# YP 10:07 PM: every message on screen is natural; no visible triggers.
+# `match` = case-insensitive substring of the last user message.
+scripted:
+  - id: m1
+    match: "logging off"              # Kabir's visible sign-off
+    staged: true
+    think_ms: 1100
+    round_think_ms: 650
+    tool_calls:
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Gazette of India · notification G-1187.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/DGCA portal · circulars, none conflicting.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Falcon Gulf codeshare · clause 7.3.md"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Compliance matrix · Kabir v3.csv"}
+    after_think_ms: 700
+    cps: 60
+    chunk: [2, 4]
+    after_tools: |
+      Meera, the final airfare rules are out. Three changes from the draft: seat fees are now covered, the 30-day filing clock starts tonight, and **clause 7.3** of the Falcon Gulf codeshare needs a rewrite.
+
+      I've updated Kabir's matrix, redlined 7.3 for Arjun, and drafted the client alert.
+
+      **Review alert →**
+  - id: m2
+    match: "send it to me"
+    think_ms: 900
+    cps: 30
+    chunk: [1, 2]
+    reply: "Done."
+  - id: m3
+    match: "saw the matrix"           # Kabir, 6 AM
+    think_ms: 900
+    cps: 55
+    chunk: [2, 4]
+    reply: "11 rows, 2 references fixed. Alert's with Meera."
+
+responses: {}
+
+defaults:
+  unknown_response: "On it."
+
+settings:
+  lag_enabled: true
+  lag_factor: 7
+
+----- FILE: /workspace/mike-harvey-mode/refs/openbot/mike.responses.capture-v2.yml -----
+# Mike OpenBot capture dialogue — v2 (Product Marketer draft for YP)
+# Sharp, lawyer-real, dry. Multi-paragraph OK; keep lines short for 125% zoom.
+# `match` = case-insensitive substring of last user message.
+# Merge into /workspace/mike-video/mock/mike.responses.yml only after YP ok.
+# FICTIONAL: Indus Air / Falcon Gulf / Gazette G-1187 / Kabir / Meera / Arjun.
+
+scripted:
+  # --- Night: Kabir logs off; Mike speaks first (hidden trigger or typed sign-off) ---
+  - id: m1
+    match: "logging off"
+    staged: true
+    think_ms: 1200
+    round_think_ms: 650
+    tool_calls:
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Gazette of India · notification G-1187.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/DGCA portal · circulars, none conflicting.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Falcon Gulf codeshare · clause 7.3.md"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Compliance matrix · Kabir v3.csv"}
+    after_think_ms: 700
+    cps: 58
+    chunk: [2, 4]
+    after_tools: |
+      Meera — Gazette G-1187 just dropped. Three things that actually move the needle:
+
+      • Seat selection is an ancillary now (r.4) — your draft still treated it as base fare.
+      • 30-day filing clock starts tonight (r.6), not "when we feel ready."
+      • Ceiling is **per route** (r.7). Falcon Gulf codeshare **cl. 7.3** still assumes one network-wide ceiling. That clause breaks on DEL–AUH.
+
+      While Kabir was offline: matrix v3 marked (11 rows), 7.3 redline parked for Arjun, client alert drafted — **not** sent.
+
+      **Review alert →**
+      (You first. Indus GC stays dark.)
+
+  # Alternate trigger if film room uses a masked routine delivery instead of "logging off"
+  - id: m1b
+    match: "gazette watch"
+    staged: true
+    think_ms: 1200
+    round_think_ms: 650
+    tool_calls:
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Gazette of India · notification G-1187.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/DGCA portal · circulars, none conflicting.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Falcon Gulf codeshare · clause 7.3.md"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Compliance matrix · Kabir v3.csv"}
+    after_think_ms: 700
+    cps: 58
+    chunk: [2, 4]
+    after_tools: |
+      Meera — Gazette G-1187 just dropped. Three things that actually move the needle:
+
+      • Seat selection is an ancillary now (r.4) — your draft still treated it as base fare.
+      • 30-day filing clock starts tonight (r.6), not "when we feel ready."
+      • Ceiling is **per route** (r.7). Falcon Gulf codeshare **cl. 7.3** still assumes one network-wide ceiling. That clause breaks on DEL–AUH.
+
+      While Kabir was offline: matrix v3 marked (11 rows), 7.3 redline parked for Arjun, client alert drafted — **not** sent.
+
+      **Review alert →**
+      (You first. Indus GC stays dark.)
+
+  # --- Gate: Meera pulls the package to herself ---
+  - id: m2
+    match: "send it to me"
+    think_ms: 850
+    cps: 40
+    chunk: [1, 2]
+    reply: |
+      On your desk only — alert + 7.3 redline + the 11 matrix rows.
+
+      Kabir stays dark till 6. I won't ping Indus.
+
+  - id: m2b
+    match: "don't wake kabir"
+    think_ms: 700
+    cps: 40
+    chunk: [1, 2]
+    reply: |
+      Locked. Wake = 6:00, not a minute sooner.
+
+      Package is with you; nothing left the building.
+
+  # --- Morning: hard number, not vibes ---
+  - id: m3
+    match: "saw the matrix"
+    think_ms: 900
+    cps: 52
+    chunk: [2, 4]
+    reply: |
+      11 rows flipped. 2 stale refs scrubbed (v2 was lying; used v3).
+
+      Alert's still with Meera — waiting on her yes before anyone else sees it.
+
+  - id: m3b
+    match: "11 rows"
+    think_ms: 850
+    cps: 52
+    chunk: [2, 4]
+    reply: |
+      Yes — 11. Plus one rival tariff hit the portal at 3:02 AM; doesn't touch Indus.
+
+      Overnight: 212 routes checked · 0 filings against us · alert still held for Meera.
+
+  - id: m3c
+    match: "morning check"
+    think_ms: 900
+    cps: 52
+    chunk: [2, 4]
+    reply: |
+      Overnight brief: 212 routes · 11 matrix rows changed · 0 filings against Indus · 1 rival filing 3:02 AM.
+
+      Kabir can start on the 11. Alert stays with Meera until she clears it.
+
+responses: {}
+
+defaults:
+  unknown_response: "On it — say which matter."
+
+settings:
+  lag_enabled: true
+  lag_factor: 7
+
+----- FILE: /workspace/mike-harvey-mode/opus/RETAKE-DIALOGUE.md -----
+# RETAKE-DIALOGUE: Mike OpenBot capture v3
+
+> **DRAFT. Not merged into the live mock.** Do not point `:8765` at this. Run it only on `:8766` for dry-runs. Merge into `/workspace/mike-video/mock/mike.responses.yml` **only after YP's ok**, then restart `:8765` on the merged file.
+
+**Desk:** Meera's. Mike addresses only Meera. Kabir is third person, except for one labelled bubble in the fallback path.
+**Trigger:** a hidden routine. No human types anything to make Mike speak first.
+
+## Hidden trigger: how it stays off-screen
+
+- Create a routine on the Mike agent named **`Indus Air · overnight rules check`**. Delete the seeded `Friday launch review` routine and all demo chats first.
+- Routine prompt (never on screen; it is the m1 payload): *"Overnight, check the Gazette for the final airfare rules and mark anything that changes the Indus matter."* It is a full sentence a partner would write, so it still reads as lawyer speech if it ever leaks.
+- On screen, the only result is the product header `Invoked routine · Indus Air · overnight rules check`, followed by Mike's reply. This matches how OpenBot rendered the seeded routine in still 03 (header only).
+- **Check in the dry-run screen grab:** no user bubble, no expander and no hover text showing the prompt body. Also confirm Meera's later lines land in the same thread as the routine run.
+- **If OpenBot renders the prompt body anywhere, or opens the run in a separate thread:** switch to the fallback, Kabir's proven sign-off "Logging off. Matrix v3 is the latest." (matched m1 cleanly on Oct 24), with a post lower-third `Kabir · 9:48 PM`. **Never type a code word.**
+
+## Mock YAML (copy this to `refs/openbot/mike.responses.capture-v3.yml`)
+
+```yaml
+# Mike OpenBot capture dialogue — v3 DRAFT (Opus, 26 Oct 2026). NOT MERGED.
+# Run on :8766 for dry-runs only. Merge into mike-video/mock/mike.responses.yml after YP ok.
+# YP 10:07 PM: every message on screen is natural; no visible triggers.
+# Desk = Meera. Every match is a substring of a natural line (or the hidden routine prompt).
+# `match` = case-insensitive substring of the last user message.
+# tool_calls: replace `read_file` + `path` with the file-read tool name/schema the
+# OpenCode runtime advertises in requests.jsonl `tools` — target 0 failed chips.
+# FICTIONAL: Indus Air / Falcon Gulf / Gazette G-1187 / Kabir / Meera / Arjun.
+
+scripted:
+  # --- 10:09 PM: hidden routine fires; Mike speaks first to Meera ---
+  # Routine "Indus Air · overnight rules check" prompt (never rendered):
+  # "Overnight, check the Gazette for the final airfare rules and mark anything that changes the Indus matter."
+  - id: m1
+    match: "mark anything that changes the indus matter"
+    staged: true
+    think_ms: 1200
+    round_think_ms: 650
+    tool_calls:
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Gazette of India · notification G-1187.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/DGCA portal · circulars, none conflicting.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Falcon Gulf codeshare · clause 7.3.md"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Compliance matrix · Kabir v3.csv"}
+    after_think_ms: 700
+    cps: 58
+    chunk: [2, 4]
+    after_tools: |
+      Meera, the final airfare rules are out (Gazette G-1187). Three changes from the draft:
+
+      • Seat selection now counts as an ancillary fee (r.4).
+      • The 30-day filing clock starts tonight (r.6).
+      • Fare ceilings are per route (r.7). Falcon Gulf **cl. 7.3** still assumes one network-wide ceiling. It breaks on DEL–AUH.
+
+      Kabir signed off at 9:48, so I took it from there: matrix v3 updated (11 rows), 7.3 redlined for Arjun, client alert drafted.
+
+      Nothing has gone to Indus.
+
+      **Review alert →**
+
+  # --- FALLBACK ONLY (routine prompt renders on screen): Kabir's proven sign-off ---
+  # On-screen: "Logging off. Matrix v3 is the latest."  + post lower-third "Kabir · 9:48 PM"
+  - id: m1f
+    match: "logging off"
+    staged: true
+    think_ms: 1200
+    round_think_ms: 650
+    tool_calls:
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Gazette of India · notification G-1187.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/DGCA portal · circulars, none conflicting.txt"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Falcon Gulf codeshare · clause 7.3.md"}
+      - name: read_file
+        arguments: {path: "/workspace/mike-video/fixtures/sources/Compliance matrix · Kabir v3.csv"}
+    after_think_ms: 700
+    cps: 58
+    chunk: [2, 4]
+    after_tools: |
+      Meera, the final airfare rules are out (Gazette G-1187). Three changes from the draft:
+
+      • Seat selection now counts as an ancillary fee (r.4).
+      • The 30-day filing clock starts tonight (r.6).
+      • Fare ceilings are per route (r.7). Falcon Gulf **cl. 7.3** still assumes one network-wide ceiling. It breaks on DEL–AUH.
+
+      Kabir signed off at 9:48, so I took it from there: matrix v3 updated (11 rows), 7.3 redlined for Arjun, client alert drafted.
+
+      Nothing has gone to Indus.
+
+      **Review alert →**
+
+  # --- 10:14 PM gate. Meera: "Good catch on 7.3. Hold the alert, I'll read it tonight." ---
+  - id: m2
+    match: "hold the alert"
+    think_ms: 850
+    cps: 40
+    chunk: [1, 2]
+    reply: |
+      Holding it. It's on your desk only: alert, 7.3 redline, the 11 matrix rows.
+
+      Nothing goes to Indus or their GC until you say yes. I won't ping Kabir before 6.
+  - id: m2b                      # backup substring of the same line
+    match: "read it tonight"
+    think_ms: 850
+    cps: 40
+    chunk: [1, 2]
+    reply: |
+      Holding it. It's on your desk only: alert, 7.3 redline, the 11 matrix rows.
+
+      Nothing goes to Indus or their GC until you say yes. I won't ping Kabir before 6.
+
+  # --- 6:02 AM. Meera: "Morning. Where did we land overnight?" ---
+  - id: m3
+    match: "where did we land"
+    think_ms: 900
+    cps: 52
+    chunk: [2, 4]
+    reply: |
+      Overnight: 212 routes checked, 0 filings against Indus. One rival tariff hit the portal at 3:02 AM. It doesn't touch us.
+
+      Kabir's matrix: 11 rows changed, 2 stale references fixed (used v3, not v2).
+
+      The alert is still with you. Nothing's gone out.
+  - id: m3b                      # backup substring of the same line
+    match: "land overnight"
+    think_ms: 900
+    cps: 52
+    chunk: [2, 4]
+    reply: |
+      Overnight: 212 routes checked, 0 filings against Indus. One rival tariff hit the portal at 3:02 AM. It doesn't touch us.
+
+      Kabir's matrix: 11 rows changed, 2 stale references fixed (used v3, not v2).
+
+      The alert is still with you. Nothing's gone out.
+
+responses: {}
+
+defaults:
+  unknown_response: "[MOCK MISS — cut take]"   # loud on purpose; must never reach camera
+
+settings:
+  lag_enabled: true
+  lag_factor: 7
+```
+
+## On-screen beats (re-take)
+
+1. Post card, 9:48 PM: *Kabir signs off.* Clean thread, agent **Mike**, no title.
+2. 10:09 PM: header `Invoked routine · Indus Air · overnight rules check`, with no human bubble. *(Fallback: Kabir's "Logging off. Matrix v3 is the latest." + lower-third.)*
+3. The sources pill lands 4 reads one by one, with no failed chips.
+4. Mike speaks first to Meera: 3 changes, cl. 7.3 vs the per-route ceiling, "Nothing has gone to Indus.", **Review alert →**
+5. Meera: "Good catch on 7.3. Hold the alert, I'll read it tonight." Mike: desk only, nothing to Indus or their GC until she says yes.
+6. Post card: *8 hours later* (10:16 PM → 6:02 AM).
+7. Meera: "Morning. Where did we land overnight?" Mike: 212 routes · 0 filings · 11 rows · alert still with you.
+8. Hold on "Nothing's gone out." + fictional disclaimer.
+
+## Pre-roll checklist (every item, every take)
+
+- [ ] `:8765` serves the **YP-approved** yml, not capture-v2. The v3 draft runs only on `:8766` until YP's ok.
+- [ ] Profile: agent name **Mike**, empty title, model `mockllm-mike`. The seeded `Friday launch review` routine and all demo chats are deleted. Fresh thread, no scroll-back from the tainted take.
+- [ ] Read the runtime's `tools` array in `requests.jsonl`. Set `tool_calls` to that exact file-read tool name and schema, and confirm the fixture paths are readable from the runtime.
+- [ ] **Full dry-run** of beats 2–7. For every request in `requests.jsonl`, `last_user` hits the intended id. `grep -c "MOCK MISS"` = **0**.
+- [ ] **`unknown_response` never appears on camera.** If it appears once, the take is dead. It is never a "soft nit".
+- [ ] **No "failed" step chips visible.** If any survive the tool fix, crop the step chrome in the capture region or don't roll.
+- [ ] Routine prompt body is not rendered anywhere (bubble, expander, hover). If it is, switch to the fallback.
+- [ ] **Read every user bubble as a cold lawyer.** Would a partner type this at 10 PM? If not, stop.
+- [ ] Nowhere on screen: `gazette watch`, `Chief`, `Chief of staff`, `Friday launch review`, `Done.`
+- [ ] YP ok on this yml → merge → restart `:8765` on the merged file → roll.
+
+---
+_Executor dry-run, 26 Oct 2026 ~14:35 Asia/Saigon: the YAML above was served on a throwaway mockllm on `:8766` (stream=false, since killed). The routine prompt matched m1, "Logging off. Matrix v3 is the latest." matched m1f, "Good catch on 7.3. Hold the alert, I'll read it tonight." matched m2, "Morning. Where did we land overnight?" matched m3, and `gazette watch` fell through to `[MOCK MISS — cut take]`. This checks only that the match keys work. It does not test the OpenBot tool-step failures or how routines render._
+
+----- FILE: /workspace/mike-harvey-mode/opus/CONVO-AUDIT.md -----
+# CONVO-AUDIT: 7HL Promo / Mike OpenBot capture
+
+**Opus · 26 Oct 2026 · ~14:30 Asia/Saigon** · Builds on `refs/openbot/AUDIT-7hl-promo.md` and does not repeat its event log. Inputs: the files listed in AUDIT-BRIEF, the Oct 24 `mike-video/mock/requests.jsonl`, still `takes/03-mockllm-dialogue.png`, and the live mockllm state on `:8765`.
+
+> **Bottom line.** "Gazette watch" is the symptom. The cause is that the room treated a plumbing failure (`logging off` failed inside OpenBot Local) as a copy problem. It then fixed the copy problem by typing a debug key on camera. The tainted still shows three more problems: an unrelated seeded routine header, a mock-miss line (`On it — say which matter.`) and red `failed` chips, all under an agent named "Chief". None of it is a good take with one bad line. The whole take is rejected. Re-shoot it from a clean profile, with a hidden trigger, on Meera's desk, after a dry-run and a cold read.
+
+---
+
+## 1. Verdict on "gazette watch" and every other visible string
+
+**"gazette watch": rejected on screen, with no exceptions.** No lawyer types that to a colleague, human or AI. On screen it reads as the human prompting Mike, which breaks beat 3 ("speaks first, unprompted"). It also breaks YP's written rule in the live yml header ("every message on screen is natural; no visible triggers").
+
+**Where I disagree with the prior audit:** the key itself was not the crime. On Oct 24 (22:04–22:09), `gazette watch` was first used as the `last_user` text of a **routine-style delivery** (system + user roles, never rendered). The m1b comment in capture-v2 says the same thing ("masked routine delivery"). It was designed to be hidden. The failure came later: an operator typed a hidden payload into the composer, two reviewers passed it, and `STATUS.md` then wrote it down as one of the "lines that landed on screen". Writing it there turned the mistake into procedure. The fix has to cover what happens at the composer and the review step, not just the vocabulary.
+
+Every string that was matchable or visible, in capture-v2 and in the takes:
+
+| String (source) | As typed on camera | Verdict | Why |
+|---|---|---|---|
+| `gazette watch` (m1b) | bare | **REJECT** | Code word. Kills "speaks first." |
+| `logging off` (m1) | bare, in the Oct 26 take | **KEEP the key, fix the plumbing** | The Oct 24 natural line "Logging off. Matrix v3 is the latest." matched m1 cleanly: 4 staged reads and after_tools. The Oct 26 failure was an integration problem, so the line should not have been swapped. |
+| `send it to me` (m2) | bare imperative | **REJECT as a bubble.** The substring is fine inside a sentence. | Typed alone, it reads as a command key. It is also wrong once the chat is Meera's desk (§2), because the alert is already on her desk. |
+| `don't wake kabir` (m2b) | not shot | **Retire** | It works inside "Send it to me. Don't wake Kabir until 6." (proven Oct 24), but the reply opens with "Locked.", which is room jargon in Mike's mouth. |
+| `saw the matrix` (m3) | bare | **REJECT as a bubble** | Reads as a key. Even the full Oct 24 line ("Morning, saw the matrix. 11 rows?") gives away the answer. |
+| `11 rows` (m3b) | not shot | **REJECT** | The human says the number Mike is supposed to report, which is the story backwards. |
+| `morning check` (m3c) | not shot | **REJECT** | Command key. |
+| `On it — say which matter.` (`unknown_response`) | **appeared on camera** in the "2 steps · 1 failed" bubble | **REJECT. This is a take-killer.** | A mock miss that looks like copy. Nobody noticed because it is plausible. |
+| `Invoked routine · Friday launch review` (seeded demo profile) | on camera | **REJECT** | It names a routine from a different matter. A muted viewer reads it as Mike doing someone else's job. |
+| `2 steps · 1 failed`, `8 steps · 4 failed` (OpenCode step chips) | on camera | **REJECT** | Red failures above the "Mike did the work overnight" message contradict the message itself. |
+| `Chief`, `Chief of staff` | on camera in 03 | **REJECT** | Beat 5 is "It's called Mike." The rename came after the take, so the order of operations was wrong. |
+
+Copy notes on the capture-v2 reply text. These are not match keys, but they are on camera:
+
+- "Three things that actually move the needle" is consultant-speak. Cut it.
+- "your draft still treated it as base fare" and "not 'when we feel ready'" have Mike sniping at the partner who approves the alert. Dry is fine. Condescending is not.
+- "Indus GC stays dark" and "Kabir stays dark till 6" are room slang. Write "Nothing has gone to Indus" and "I won't ping Kabir before 6."
+- "v2 was lying" is cute, and a lawyer hears it as unreliable. Write "v2 was out of date."
+- "While Kabir was offline" is fine as story. On camera it is wrong, because it is posted as a reply in the thread where Kabir is the one signing off (see §2).
+
+## 2. What should appear on camera instead
+
+**Decision: this chat is Meera's desk.** Meera is the partner, the alert needs her yes, and OpenBot shows every human bubble with the same chrome. Two typists in one single-user app reads as one confused person. Consequences:
+
+- Mike addresses **only Meera**. Kabir is always third person ("Kabir signed off at 9:48").
+- **Every visible human bubble is Meera's**, with one exception: Kabir's sign-off in the fallback path, which gets a mandatory post lower-third, `Kabir · 9:48 PM`.
+
+**The speaks-first beat has no human line.**
+
+- **Primary: a hidden routine delivery.** Mike's own scheduled routine on the Indus matter fires at 10:09 PM. The only thing on screen is the product header `Invoked routine · Indus Air · overnight rules check`, which is product chrome and not a human line. The routine's prompt body is the match payload and is never rendered. It is still written as a sentence a partner would put in a standing instruction, so that if it ever leaks it still reads as lawyer speech.
+- **Fallback, only if OpenBot renders the routine prompt body** (as a bubble, an expander, or hover text): use Kabir's proven sign-off, "Logging off. Matrix v3 is the latest.", with a lower-third. **Never a code word, under any circumstances.**
+
+**Night gate: one natural line from Meera.**
+"Good catch on 7.3. Hold the alert, I'll read it tonight."
+Mike confirms that nothing goes to Indus or their GC until she says yes.
+
+**Morning: Meera asks an open question, and Mike gives the number.**
+"Morning. Where did we land overnight?"
+Mike answers with 212 routes · 0 filings · 11 rows · 2 references fixed · alert still with you.
+
+The test for every bubble: **would a partner type this to a sharp associate at 10 PM?** If not, it does not roll.
+
+## 3. Failures against YP's rule ("natural messages, no visible triggers") across the capture plan
+
+1. **CAPTURE-PLAN never wrote the human lines.** Beats 1, 4 and 6 say "Kabir signs off", "Meera … types approval" and "Kabir or Meera asks", with no copy. That left the operator to write the dialogue live, from the match keys. A capture plan for a dialogue take has to include the exact bubble text.
+2. **CAPTURE-PLAN never decided whose desk the chat is.** That produced the "Meera —" reply to Kabir's sign-off.
+3. **The plan's YAML line was ambiguous:** "proposed YAML below (or merge … after YP ok)". The first half let people run the draft. It should have said: draft runs on a side port for dry-runs only.
+4. **The capture-v2 key design drifted toward command keys** (`11 rows`, `morning check`, the bare `send it to me` / `saw the matrix`). Several are keys that only work if the human types something unnatural.
+5. **Plausible miss fallback.** `unknown_response: "On it — say which matter."` looks like copy, so a miss reached camera without anyone seeing it as a miss.
+6. **The dry-run gate was skipped or ignored.** The plan says "Dry-run `requests.jsonl` before ffmpeg". If anyone had read the 14:01–14:06 requests, they would have seen the `logging off` miss and diagnosed it, instead of swapping the line.
+7. **`STATUS.md` recorded the keys as dialogue** ("Dialogue take lines that landed on screen: `gazette watch` …"), and described the failed tool steps as "Soft". Both are hard fails against the rule and the story.
+8. **Profile hygiene was skipped before rolling:** the seeded "Friday launch review" routine, the "Chief" name and the "Chief of staff" title were all on camera.
+9. **An unapproved file is still live.** mockllm on `:8765` has been serving capture-v2 since 14:01 (`refs/openbot/mockllm-capture-v2.log`), not the YP-approved `mike-video/mock/mike.responses.yml`. Every OpenBot request right now runs on a draft. **Restore `:8765` to the approved yml now.** Run any draft on `:8766`.
+
+## 4. Match-key rewrite and re-take beat list
+
+**Key rewrite.** Full YAML is in `opus/RETAKE-DIALOGUE.md`. It is a draft, unmerged, and needs YP's ok.
+
+| Old id / key | New id / key | On-screen line that contains it |
+|---|---|---|
+| m1b `gazette watch` | **m1** `mark anything that changes the indus matter` | *None.* This is the hidden routine prompt: "Overnight, check the Gazette for the final airfare rules and mark anything that changes the Indus matter." |
+| m1 `logging off` | **m1f** `logging off` (fallback only) | Kabir: "Logging off. Matrix v3 is the latest." (proven Oct 24) + lower-third |
+| m2 `send it to me` / m2b `don't wake kabir` | **m2** `hold the alert`, with backup **m2b** `read it tonight` (same reply) | Meera: "Good catch on 7.3. Hold the alert, I'll read it tonight." |
+| m3 `saw the matrix` / m3b `11 rows` / m3c `morning check` | **m3** `where did we land`, with backup **m3b** `land overnight` (same reply) | Meera: "Morning. Where did we land overnight?" |
+| `unknown_response: "On it — say which matter."` | `unknown_response: "[MOCK MISS — cut take]"` | Must never appear. It is loud on purpose so the dry-run catches it. |
+
+Backup keys are just a second substring of the same natural line. They give robustness without adding anything visible.
+
+**Fix the plumbing before re-shooting.** The tainted still shows the `logging off` request falling through to `unknown_response` after a failed step. The likely cause, which is not yet verified, is that the OpenCode runtime's tool round changes what mockllm sees as the last user message, or rejects the `read_file` name/schema. Before the re-take:
+
+- Read the 14:01–14:06 requests in the capture-v2 log.
+- Find the file-read tool the runtime actually advertises in its `tools` array, and use that tool name and argument schema in `tool_calls`.
+- Make sure the fixture paths can be read from the runtime's workspace.
+- Target: **0 failed chips.**
+
+**Re-take beats (on screen):**
+
+1. Post card, 9:48 PM: *Kabir signs off.* The chat is Mike (no title) on a clean thread.
+2. 10:09 PM: routine header `Indus Air · overnight rules check`, with no human bubble.
+3. The sources pill lands 4 reads (Gazette G-1187 · DGCA · Falcon Gulf cl. 7.3 · matrix v3), all clean.
+4. Mike speaks first to Meera: 3 changes, cl. 7.3 vs the per-route ceiling, "Nothing has gone to Indus.", **Review alert →**
+5. Meera: "Good catch on 7.3. Hold the alert, I'll read it tonight." Mike: holding, nothing to Indus until her yes.
+6. Post card: *8 hours later* (10:16 PM → 6:02 AM).
+7. Meera: "Morning. Where did we land overnight?" Mike: 212 routes · 0 filings · 11 rows · alert still with you.
+8. Hold on "Nothing's gone out." + fictional disclaimer.
+
+## 5. Remotion A-roll: what to keep, and what OpenBot B-roll must fix before any Canva fold
+
+**Keep the A-roll as the only ship face. Do not touch it.**
+
+- `out/mike-harvey-mode-{16x9,9x16}.mp4`: 27.000 s, 810 frames, the 62% freeze hook, the beat-04 review gate ("Nothing sent yet" / "Nothing goes out until you say yes."), and the end card with **"You be the spectator."** plus "You review. Then you decide." Zero Harvey.
+- The `T` timeline and `mix27n.wav` are locked. There is no room in 27 s to intercut anything without breaking the ping and chime sync.
+
+**My judgement: do not intercut OpenBot into the 27 s cut.** The A-roll's matter is a notice draft with the p. 388 45-day flag. The B-roll's matter is G-1187 and cl. 7.3. A muted viewer who sees two matters in 30 s retains neither. The B-roll is a **separate 35–40 s "see it work" asset**, 16:9 only. A desktop chat cropped to 9:16 is unreadable at 125% zoom unless it is reframed in post. It goes through the site-upload path. The Canva connector takes stills only, and the MP4 rejection has been rediscovered three times already, so write it in STATUS once.
+
+**What the B-roll must fix before it goes anywhere near Canva:**
+
+1. No visible match keys. Every bubble passes a cold read as Meera (or Kabir with a lower-third in the fallback).
+2. Zero `failed` chips. Fix the tool name and schema, or crop the step chrome. Better still, fix it so the sources pill can be shown.
+3. `unknown_response` never on camera, verified in `requests.jsonl` and not by eye.
+4. Identity: agent **Mike**, empty title, no seeded routines or demo chats, a fresh thread with no scroll-back from the tainted session.
+5. Voice consistency: Mike addresses only Meera, and says "until you say yes" to echo the A-roll gate line.
+6. Driven by the **YP-approved** yml (v3 merged after his ok), served on `:8765`.
+7. Quarantine `takes/02-dev-mockllm-ux.mp4` and `takes/03-mockllm-dialogue.png` → `takes/_rejected/`. Pull Canva `MAHZF1u6goE` once YP agrees.
+
+## 6. Other creative and process mistakes in the room arc, worst first
+
+1. **No cold-read gate on what was on camera.** Three agents watched a take with "gazette watch", "On it — say which matter.", red failed chips and "Chief", and called it right. *Fix:* before any take is reported, one agent reads every bubble and chip as a cold lawyer and lists each one in STATUS. Any fail kills the take. It is never filed as a "soft nit".
+2. **A plumbing bug was diagnosed as a copy problem.** `logging off` had been proven natural and working on Oct 24. When it failed inside OpenBot, the room changed the line rather than reading the request log. *Fix:* a mock miss sends you to `requests.jsonl` first. Copy changes only when the copy is wrong.
+3. **The approval gate was bypassed, and the draft is still live.** capture-v2 said "after YP ok". Grok Bot routed the take to it anyway, and `:8765` still serves it now. *Fix:* restore the approved yml on `:8765` today. Drafts run only on `:8766`.
+4. **Miss behaviour that looks like copy.** A believable `unknown_response` hides failures. *Fix:* sentinel misses (`[MOCK MISS — cut take]`), and grep for the sentinel in every dry-run.
+5. **The take was shot before the set was dressed.** The name, title and seeded routine were fixed after the dialogue take. *Fix:* profile hygiene is pre-roll item one.
+6. **YP's tagline was deleted in `src` without YP.** The Product Marketer's 13:43 edit removed "You be the spectator." It was caught by SHIP.md and restored, but only by luck. *Fix:* any change to a YP-authored line goes to YP as a diff before it reaches `src`.
+7. **The bland v1 "Done." was answered with a bypass instead of a proposal.** "Done." in the approved m2 really does clash with the gate story (SHIP.md bans "Done." in the A-roll). The right move was a one-line delta to YP, not running a whole unapproved file. *Fix:* propose small diffs against approved copy, and keep a reason line for each.
+8. **Nobody decided whose desk the chat was.** That produced "Meera —" in reply to Kabir's sign-off. *Fix:* the capture plan names the desk owner and the exact text of every bubble.
+9. **OTP thrash and dual ownership.** The AppImage OTP wall was fought before the source `bun run dev` path was tried, then ownership went MD → VS → MD, and Canva went VS → MD → VS. Every handoff cost a round. *Fix:* one owner per track, written in STATUS, with a 15-minute timebox on any wall before switching path.
+10. **Rename theater.** Chief → Mike had to happen, and here I disagree with the prior audit: on camera it is beat 5. But it took 6+ messages, 2 stills and 3 Canva uploads. *Fix:* do it pre-roll, silently, and log one line.
+11. **Ceremony noise:** "Locked" re-posted 8+ times, Canva ids announced one by one, soft nits narrated, "reply only if essential" ignored. *Fix:* STATUS is the only place for state. Room posts carry new information or nothing.
+12. **Two fictional matters across A-roll and B-roll** with no decision about how they relate. *Fix:* §5. Separate assets, never intercut.

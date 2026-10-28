@@ -1,0 +1,54 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+
+# Local caches
+.claude/
+.cursor/projects/
+
+# OpenBot desktop dump (unrelated)
+refs/openbot/
+
+# Delivery masters: keep only C2 + C KEEP references
+out/**
+!out/
+!out/gary-agents-version-c2-9x16.mp4
+!out/mike-version-c-9x16.mp4
+
+# Heavy / superseded audio banks
+audio/vo_b/
+audio/b_assets/
+audio/mix27*.wav
+audio/mix28*.wav
+audio/mix30*.wav
+audio/mix37b*.wav
+audio/chime.wav
+audio/pad.wav
+audio/ping.wav
+audio/slam.wav
+audio/tick.wav
+audio/whoosh.wav
+
+# Opus cold-check dumps / raw voice JSON blobs
+opus/version-b-coldcheck/
+opus/version-b-hank-coldcheck/
+opus/version-b-916-opus-audit/
+opus/_voice_data/
+opus/female_raw/
+opus/open-patch-check/
+opus/first-scene-frames/
+opus/version-b-mariana-pass2-audio/
+opus/kinetic-frames/
+opus/overnight-frames/
+opus/broll-*/
+opus/open-size/
+opus/patch-frames/
+qa/
+audit/
+attachments/
+assets/

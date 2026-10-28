@@ -1,0 +1,36 @@
+You are a senior motion-design director grading ONLY the FIRST SCENE (0–~8 s) of a 28 s Remotion promo, "Mike" (legal-AI associate that keeps working overnight). Producer YP replied to the 16:9 master: the first scene "isn't feeling" and asked about SIZING. Be blunt and specific. Grade only; no code will be run by you.
+
+USE YOUR Read TOOL TO OPEN THE FRAMES (PNG, full res). Read at minimum the files marked *.
+16:9 master (1920x1080): /workspace/mike-harvey-mode/opus/first-scene-frames/16x9/t{00.0*,00.5,01.0,01.5,02.0,02.5*,02.7,02.9*,03.0,03.5,04.0,04.5*,05.0,05.5,06.0,06.5*,07.0,07.5,08.0}.png
+9:16 master (1080x1920, = centre 608-px column of the 16:9 comp scaled 1.776x): /workspace/mike-harvey-mode/opus/first-scene-frames/9x16/t{same timestamps; read 00.0*,02.5*,02.9*,04.5*,06.5*}.png
+1:1 crops: /workspace/mike-harvey-mode/opus/first-scene-frames/crop-16x9-t02.5-laptop-1to1.png*, crop-16x9-t04.5-session-1to1.png*, crop-9x16-t02.5-laptop-1to1.png*
+(file names like t02.5.png = 2.5 s)
+
+WHAT THE SCENE IS (from source, frames @30fps):
+- 0–2.2 s: flat-front code-drawn laptop centred on black. Design size: lid 480x300, deck+lid ≈560x384 incl. deck; placed at y=262 of 1080. Screen: left "doc" pane (header "INDUS AIR · FALCON GULF CODESHARE" 10 px, skeleton grey bars, gold-highlighted row "7.3 Fare ceiling applies network-wide." 11.5 px) and right "Assistant" pane streaming "Checking cl. 7.3 against the draft fare rules — the network-wide ceiling may not hold once routes are…" at 11.5 px. Slow camera creep 1.00→1.06. Doc scrolls up 46 px, and the skeleton bars scroll UNDER the header (visible collision at 2.0–2.7 s).
+- 2.2–3.0 s: lid "closes": implemented as scaleY(cos θ) squash anchored at the hinge (no perspective/rotation), brightness dims, then a lid-back slab drawn on the deck, + 8 px jolt. Audio: lid slam SFX at 2.98 s.
+- 3.1–5.5 s: camera eases back (scale 1.06→0.80) and pans up; dead slab sits mid-frame; at 3.4 s pill "● Assistant · session ended" (20 px, 45% opacity cream) fades in under it; at 3.3 s top time-super pill "☾ 9:48 PM · Meera's out" (24 px) appears at y=54 and clock ticks. World/gazette scene cross-blurs in at 5.0–5.6 s (Gazette card 460x540 + "Mike · reading" pill).
+- There is NO on-screen keystroke/typing UI, no hands, no person, no desk/room — just the object on a dot-grid black backdrop with a radial vignette.
+
+MEASURED ON-SCREEN SIZES (bright-pixel bboxes in the delivered masters):
+16:9 (1920x1080):
+- Laptop open (0–2.5 s): 556x366 → 589x421 px = 29–31% of frame width, 34–40% height, only 9.8–12.2% of frame AREA. Side margins ~670–680 px each; top margin ~260; bottom ~390–447.
+- Screen text: assistant stream ≈12 px font (cap height ~8 px); doc header ≈10 px; 7.3 row ≈12 px. Legible only at 1:1 on a desktop monitor; illegible on a phone viewing the 16:9 post.
+- Closed slab (3.0 s): 594x75 px = 2.1% area. 3.5–5.0 s: slab+pill group 465–542x112–131 px = 2.5–3.4% area; ~88% of frame is empty black.
+- "Assistant · session ended" pill: text ≈20 px, 45% opacity; group ~300 px wide.
+- Time super text: 300x19 px at y 68–87 (≈15.6% width).
+- Gazette card at 6–8 s: ~460–500 px wide (~24–26% width) — again small, centred, lots of void.
+9:16 (1080x1920):
+- Laptop open: 988x738 → 1045x749 px = 91–97% width, ~38–40% height, 35–39% area. Side margins collapse to 46 → 26/9 px (the deck nearly touches/bleeds the right edge at 2.5 s, 6–7 px at 3.0 s; drift makes it asymmetric). Top void ~460 px, bottom void ~700 px.
+- Screen text ≈21 px (assistant), header ≈18 px — readable.
+- Session pill text ≈36 px; time super 532x33 px text at y 122–155.
+- Gazette card ~820 px wide (~76%) at 6 s.
+
+STORY JOB OF THIS SCENE: "Your normal AI assistant stops when you close the laptop." Show-don't-tell: mid-task, lid closes, session dies. Then Mike (who keeps working overnight) takes over.
+
+DELIVER (markdown, ≤ 900 words):
+1. CALL: KEEP / PATCH / RE-ROLL for the first scene only, one line why.
+2. SIZING: what YP most likely means, citing px/percentages above and what you see. Which master is worse and why.
+3. FEEL: is the lid-close believable (squash vs real hinge rotation, scale of prop, does the dead-screen beat read as loss, does the "session ended" pill tell rather than show, does 2+ s of near-empty frame kill momentum, is the "Meera's out" super arriving too late/early).
+4. 16:9 vs 9:16 differences.
+5. FIX BRIEF for the Motion Director: exact numbers — target laptop width/area % per aspect, LW/LH or a scene scale factor, camera punch/ease values, perspective/rotateX approach for the lid, text sizes on the screen (px at delivery), pill sizes, safe margins for the 9:16 centre crop (the 9:16 is a hard crop of x 656–1264 of the 1920 comp), timing (frame ranges @30fps) — and anything to cut. Keep it implementable in a single Remotion component; no re-shoot of other scenes.
