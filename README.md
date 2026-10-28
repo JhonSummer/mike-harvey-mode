@@ -2,8 +2,6 @@
 
 Remotion project for short **Gary Agents** (formerly Mike) product promos: story board → composition → ElevenLabs VO → mix → bake → Studio KEEP.
 
-Companion recipe (Grok Bot / Cursor skill): **Remotion short promo** (`remotion-short-promo`).
-
 ## What’s in here
 
 | Path | Role |
